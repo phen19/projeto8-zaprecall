@@ -6,10 +6,11 @@
     align-items: center;
     position: relative;
     overflow: scroll;
+    margin-bottom: 100px;
 }
 
 .footer{
-    width: 375px;
+    width: 100vw;
     height: 70px;
     background-color: #FFFFFF;
     color: black;
@@ -21,6 +22,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer.final{
+    height: 170px;
 }
 
 .header{
@@ -186,3 +191,16 @@ body{
     transform: rotateY(-180deg);
     margin-bottom: 25px;
   }
+
+.title{
+    margin-bottom: 14px;
+}
+
+p.title{
+    width: 222px;
+    height: 44px;
+}
+
+.answersList{
+    margin-top: 6px;
+}

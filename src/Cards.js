@@ -1,10 +1,31 @@
 import React from 'react'
 export default function Cards({questions,
-    answers, id}){
+    answers, id, answersList, setAnswersList}){
     
         const [flip, setFlip] = React.useState(false)
         const [final, setFinal] = React.useState(false)
         const [cover, setCover] = React.useState(false)
+        
+        const [color, setColor] = React.useState("");
+        let imageURL =""
+
+        const addRed = () => {
+            setAnswersList([...answersList, "images/red.png"]);
+            setColor("red");
+            setFinal(true);
+        }
+
+        const addOrange = () => {
+            setAnswersList([...answersList, "images/orange.png"]);
+            setColor("#FF922E");
+            setFinal(true);
+        }
+        const addGreen = () => {
+            setAnswersList([...answersList, "images/green.png"]);
+            setColor("green");
+            setFinal(true);
+        }
+
 
     if(cover=== false){
         return(
@@ -36,19 +57,28 @@ export default function Cards({questions,
                         <div className="question back-face virado">
                         <h1>{answers}</h1>
                         <div className="actions">
-                            <button id="red" onClick={()=> setFinal(true)}className="action error" >Não lembrei</button>
-                            <button id="yellow" onClick={()=> setFinal(true)}className="action almost">Quase não lembrei</button>
-                            <button id="green" onClick={()=> setFinal(true)}className="action zap">Zap!</button>
+                            <button id="red" onClick={addRed}className="action error" >Não lembrei</button>
+                            <button id="orange" onClick={addOrange}className="action almost">Quase não lembrei</button>
+                            <button id="green" onClick={addGreen}className="action zap">Zap!</button>
                         </div>
                         </div>
                     </div>
                 )
             }else{
+                if(color==="red"){
+                    imageURL = "images/red.png"
+                }
+                if(color==="#FF922E"){
+                    imageURL = "images/orange.png"
+                }
+                if(color==="green"){
+                    imageURL = "images/green.png"
+                }
                 return(
                 <div className="cover-question final">
-                    <p>{questions} </p>
+                    <p style={{color: color}}>Pergunta {id} </p>
                     <div className="finalStatusImg">
-                        <img src="" alt="final status" />
+                        <img src={imageURL} alt="final status" />
                     </div>
                 </div>
                 )

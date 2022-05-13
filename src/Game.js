@@ -1,7 +1,13 @@
-import Cards from "./Cards.js"
+
+import React from 'react';
 import Header from "./Header.js"
+import Content from './Content.js';
+import Footer from './Footer.js';
 export default function Game(){
    
+   
+    
+    const [answersList, setAnswersList] = React.useState([]);
     const questions = [{question:"O que é JSX?", answer:"Uma extensão de linguagem do JavaScript"},
     {question:"O React é __ ", answer:"uma biblioteca JavaScript para construção de interfaces"},
     {question:"Componentes devem iniciar com __ ", answer:"letra maiúscula"},
@@ -10,16 +16,14 @@ export default function Game(){
     {question:"Usamos o npm para __", answer:"gerenciar os pacotes necessários e suas dependências"},
     {question:"Usamos props para __", answer:"passar diferentes informações para componentes"},
     {question:"Usamos estado (state) para __", answer:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}]
-    
 
     return( 
     
     <>
         
         <Header />
-        <div className="content">
-            {questions.map((questions,index) =><Cards key={index} id={index+1}questions = {questions.question} answers = {questions.answer}/>)}
-        </div>
+        <Content answersList={answersList} setAnswersList={setAnswersList} questions={questions}/>
+        <Footer answersList={answersList} length={questions.length}/>
     </>
 
    )
