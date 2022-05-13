@@ -1,28 +1,18 @@
 import React from 'react'
 import Game from "./Game.js"
-function Initial({setStart}){
-return(
-        
-            <div className="content">
-                <img src="images/image 1.png" alt="Logo" />
-                <h1>Zap Recall</h1>
-                <button onClick={setStart}>Iniciar Recall</button>
-            </div>
-       
-)
-}
-
+import Initial from "./Initial.js"
 
 
 export default function App() {
     const [start , setStart] = React.useState(false)
+    const [deckID , setDeck] = React.useState(0)
     if(start === false){
         return (
-            <Initial setStart={() => setStart(true)}/>
+            <Initial setStart={() => setStart(true)} setDeck={setDeck}/>
         );
     }else{
         return (
-            <Game />
+            <Game deckID ={deckID}/>
         );
     }
     

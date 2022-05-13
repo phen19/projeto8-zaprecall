@@ -9,7 +9,7 @@ function FooterInitial({count, answersList, length}){
     )
 }
 
-function FooterFinal({answersList, length}){
+function FooterFinal({answersList, length, setAnswersList}){
     let finalMsg = "";
     let finalEmoji = "";
     let finalTitle = "";
@@ -24,7 +24,7 @@ function FooterFinal({answersList, length}){
         finalTitle = "Putz..."
     }
     return (
-        <div>
+        <>
             <div className="title">
                 <img src={finalEmoji} alt={finalEmoji} />
                 <p>{finalTitle}</p>
@@ -34,12 +34,13 @@ function FooterFinal({answersList, length}){
             <div className="answersList">
                 {answersList.map( (answers, index) => {return <img key={index} src={answers} alt={answers} />})}
             </div>
-        </div>
+        </>
     )
 }
 
-export default function Footer({answersList,length}) {
-    if (answersList.length === 8){
+
+export default function Footer({answersList,setAnswersList,length}) {
+    if (answersList.length === length){
         return (
             <div className="footer final">
                 <FooterFinal answersList={answersList} length={length}/>
