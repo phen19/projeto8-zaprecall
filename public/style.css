@@ -245,6 +245,7 @@ input{
     border: 0;
     border-radius: 5px;
     padding-left: 10px;
+    box-sizing: border-box;
 }
 
 .content > button.disabled{

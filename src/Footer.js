@@ -1,3 +1,4 @@
+import App from "./App";
 function FooterInitial({count, answersList, length}){
     return (
         <div className="InProgress">
@@ -9,7 +10,7 @@ function FooterInitial({count, answersList, length}){
     )
 }
 
-function FooterFinal({answersList, length, setAnswersList, meta}){
+function FooterFinal({answersList, length, setAnswersList, meta, setStart, setDeck, setMeta}){
     let finalMsg = "";
     let finalEmoji = "";
     let finalTitle = "";
@@ -34,16 +35,33 @@ function FooterFinal({answersList, length, setAnswersList, meta}){
             <div className="answersList">
                 {answersList.map( (answers, index) => {return <img key={index} src={answers} alt={answers} />})}
             </div>
+            <Restart answersList={answersList} setAnswersList={setAnswersList} setStart={setStart} setDeck={setDeck} setMeta={setMeta}/>
         </>
     )
 }
 
+function Restart({answersList, setAnswersList, setStart, setDeck,setMeta}){
+    
+    if(answersList.length > 0){
+        return(
+            <div className="restart" onClick={()=>{setAnswersList([]);setStart(false);setDeck(0);setMeta()}}>
+                REINICIAR RECALL
+            </div>
+        )
+    }else{
+        return(
+            <App />
+        )
+    }
+    
+}
 
-export default function Footer({answersList,setAnswersList,length, meta}) {
+
+export default function Footer({answersList,setAnswersList,length, meta, setStart, setDeck, setMeta}) {
     if (answersList.length === length){
         return (
             <div className="footer final">
-                <FooterFinal answersList={answersList} length={length} meta={meta}/>
+                <FooterFinal answersList={answersList} length={length} meta={meta} setAnswersList={setAnswersList} setStart={setStart} setDeck={setDeck} setMeta={setMeta}/>
             </div>
             )
     } else {

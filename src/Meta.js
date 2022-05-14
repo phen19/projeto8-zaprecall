@@ -1,5 +1,5 @@
 export default function Meta({setMeta, meta, setGoToDeck}){
-    if (meta=== undefined || meta=== ""){
+    if (meta=== undefined || meta=== "" || meta === "0"){
     return(
             <div className="content">
                     <img src="images/image 1.png" alt="Logo" />

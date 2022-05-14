@@ -3,7 +3,7 @@ import React from 'react';
 import Header from "./Header.js"
 import Content from './Content.js';
 import Footer from './Footer.js';
-export default function Game({deckID, meta}){
+export default function Game({deckID, meta, setStart, setDeck, setMeta}){
    
     const [answersList, setAnswersList] = React.useState([]);
     const decks = [ [{question:"O que é JSX?", answer:"Uma extensão de linguagem do JavaScript"},
@@ -47,7 +47,7 @@ export default function Game({deckID, meta}){
         
         <Header />
         <Content answersList={answersList} setAnswersList={setAnswersList} questions={questions}/>
-        <Footer answersList={answersList} length={questions.length} meta ={meta}/>
+        <Footer answersList={answersList} length={questions.length} meta ={meta} setAnswersList={setAnswersList} setStart={setStart} setDeck={setDeck} setMeta={setMeta}/>
     </>
 
    )

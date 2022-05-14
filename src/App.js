@@ -13,7 +13,7 @@ export default function App() {
         );
     }else{
         return (
-            <Game deckID ={deckID} meta = {meta}/>
+            <Game deckID ={deckID} meta = {meta} setStart ={setStart} setDeck={setDeck} setMeta={setMeta}/>
         );
     }
     

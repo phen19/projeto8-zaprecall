@@ -77,9 +77,8 @@ export default function Cards({questions,
                 return(
                 <div className="cover-question final">
                     <p style={{color: color}}>Pergunta {id} </p>
-                    <div className="finalStatusImg">
                         <img src={imageURL} alt="final status" />
-                    </div>
+                    
                 </div>
                 )
             }
