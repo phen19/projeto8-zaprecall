@@ -3,10 +3,10 @@ import React from 'react';
 import Header from "./Header.js"
 import Content from './Content.js';
 import Footer from './Footer.js';
-export default function Game({deckID}){
+export default function Game({deckID, meta}){
    
     const [answersList, setAnswersList] = React.useState([]);
-    const decks = [  [{question:"O que é JSX?", answer:"Uma extensão de linguagem do JavaScript"},
+    const decks = [ [{question:"O que é JSX?", answer:"Uma extensão de linguagem do JavaScript"},
                         {question:"O React é __ ", answer:"uma biblioteca JavaScript para construção de interfaces"},
                         {question:"Componentes devem iniciar com __ ", answer:"letra maiúscula"},
                         {question:"Podemos colocar __ dentro do JSX", answer:"expressões"},
@@ -14,11 +14,23 @@ export default function Game({deckID}){
                         {question:"Usamos o npm para __", answer:"gerenciar os pacotes necessários e suas dependências"},
                         {question:"Usamos props para __", answer:"passar diferentes informações para componentes"},
                         {question:"Usamos estado (state) para __", answer:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}],
-                    [{question:"Melhor campeão do LoL é", answer:"Thresh"}
-
+                    [{question:"Melhor campeão do LoL é", answer:"Thresh"},
+                        {question:"Irmã da Kayle", answer:"Morgana"},
+                        {question:"Noxianas irmãs", answer:"Cassiopeia e Katarina"},
+                        {question:"Maior campeão brasileiro", answer:"brTT"},
+                        {question:"Faker Brasileiro", answer:"Kami"},
+                        {question:"Exódia", answer:"Yang, Revolta, Tockers, Micao e Jockster"},
+                        {question:"Armado e ___", answer:"Preparado"},
+                        {question:"Tem um gosto meio __", answer:"Roxo"},
                     ],
-                    [{question:"O gigantudo da Colina", answer:"VASCO"}
-
+                    [{question:"O gigantudo da Colina", answer:"VASCO"},
+                        {question:"Centenario", answer:"1998"},
+                        {question:"Ah __", answer:"É Edmundo"},
+                        {question:"Contra o __ sensacional", answer:"River Plate"},
+                        {question:"Eu sou ___ sim senhor", answer:"boêmio"},
+                        {question:"O sentimento __", answer:"não pode parar"},
+                        {question:"Gol de quem?", answer:"Gol do Juninho"},
+                        {question:"Enquanto houver um __", answer:"Coração infantil"},
                     ]
     ]
 
@@ -35,7 +47,7 @@ export default function Game({deckID}){
         
         <Header />
         <Content answersList={answersList} setAnswersList={setAnswersList} questions={questions}/>
-        <Footer answersList={answersList} length={questions.length}/>
+        <Footer answersList={answersList} length={questions.length} meta ={meta}/>
     </>
 
    )

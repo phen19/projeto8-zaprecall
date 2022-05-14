@@ -1,19 +1,20 @@
-export default function Initial({setStart, setDeck}){
-    return(
+import React from 'react'
+import Deck from './Deck'
+import Meta from './Meta'
+
+
+export default function Initial({setStart, setDeck, setMeta, meta}){
+    const [goToDeck , setGoToDeck] = React.useState(false)
+    
+    if(goToDeck === false){
+        return(
+            <Meta meta ={meta} setMeta={setMeta} setStart={setStart} setGoToDeck={() => setGoToDeck(true)}/>
             
-                <div className="content">
-                    <img src="images/image 1.png" alt="Logo" />
-                    <h1>Zap Recall</h1>
-                    <label>
-                    <select>
-                        <option value="" disabled selected hidden > Escolha seu deck</option>
-                        <option value="0" onClick={() => setDeck(0)}>JS</option>
-                        <option value="1" onClick={() => setDeck(1)}>Lolzinho</option>
-                        <option value="2" onClick={() => setDeck(2)}>O Maior de todos</option>
-                    </select>
-                    </label>
-                    <button onClick={setStart}>Iniciar Recall</button>
-                </div>
-           
-    )
+        )
+    }else{
+        return(
+            <Deck setStart={setStart} setDeck={setDeck} />
+        )
+    }
+    
     }

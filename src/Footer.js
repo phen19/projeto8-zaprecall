@@ -9,12 +9,12 @@ function FooterInitial({count, answersList, length}){
     )
 }
 
-function FooterFinal({answersList, length, setAnswersList}){
+function FooterFinal({answersList, length, setAnswersList, meta}){
     let finalMsg = "";
     let finalEmoji = "";
     let finalTitle = "";
     const rigthCheck = answersList.filter(answers => answers==="images/green.png" || answers==="images/orange.png");
-    if((rigthCheck.length) === length){
+    if((rigthCheck.length) >= meta){
         finalMsg = "Você não esqueceu de nenhum flashcard!"
         finalEmoji = "images/party.png";
         finalTitle = "Parabéns!"
@@ -39,11 +39,11 @@ function FooterFinal({answersList, length, setAnswersList}){
 }
 
 
-export default function Footer({answersList,setAnswersList,length}) {
+export default function Footer({answersList,setAnswersList,length, meta}) {
     if (answersList.length === length){
         return (
             <div className="footer final">
-                <FooterFinal answersList={answersList} length={length}/>
+                <FooterFinal answersList={answersList} length={length} meta={meta}/>
             </div>
             )
     } else {
