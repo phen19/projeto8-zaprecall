@@ -3,7 +3,7 @@ import Deck from './Deck'
 import Meta from './Meta'
 
 
-export default function Initial({setStart, setDeck, setMeta, meta}){
+export default function Initial({setStart, setDeck, setMeta, meta, deckID}){
     const [goToDeck , setGoToDeck] = React.useState(false)
     
     if(goToDeck === false){
@@ -13,7 +13,7 @@ export default function Initial({setStart, setDeck, setMeta, meta}){
         )
     }else{
         return(
-            <Deck setStart={setStart} setDeck={setDeck} />
+            <Deck setStart={setStart} setDeck={setDeck} deckID={deckID}/>
         )
     }
     

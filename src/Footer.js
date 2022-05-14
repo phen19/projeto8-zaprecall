@@ -1,4 +1,8 @@
 import App from "./App";
+import orange from "./images/orange.png"
+import green from "./images/green.png"
+import party from "./images/party.png"
+import sad from "./images/sad.png"
 function FooterInitial({count, answersList, length}){
     return (
         <div className="InProgress">
@@ -14,14 +18,14 @@ function FooterFinal({answersList, length, setAnswersList, meta, setStart, setDe
     let finalMsg = "";
     let finalEmoji = "";
     let finalTitle = "";
-    const rigthCheck = answersList.filter(answers => answers==="images/green.png" || answers==="images/orange.png");
+    const rigthCheck = answersList.filter(answers => answers===green || answers===orange);
     if((rigthCheck.length) >= meta){
-        finalMsg = "Você não esqueceu de nenhum flashcard!"
-        finalEmoji = "images/party.png";
+        finalMsg = "Você atingiu sua meta!"
+        finalEmoji = party;
         finalTitle = "Parabéns!"
     } else {
-        finalMsg = "Ainda faltam alguns... Mas não desanime!";
-        finalEmoji = "images/sad.png";
+        finalMsg = "Ainda faltam alguns para sua meta... Mas não desanime!";
+        finalEmoji = sad;
         finalTitle = "Putz..."
     }
     return (

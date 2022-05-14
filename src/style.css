@@ -238,6 +238,10 @@ option{
     margin-top: 22px;
 }
 
+.restart:hover{
+    cursor: pointer;
+}
+
 input{
     width: 246px;
     height: 44px;
@@ -251,4 +255,8 @@ input{
 .content > button.disabled{
     color: #C0C0C0;
     background-color: #E8E8E8;
+}
+
+button:hover{
+    cursor: pointer;
 }

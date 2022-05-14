@@ -1,4 +1,10 @@
 import React from 'react'
+import red from "./images/red.png";
+import orange from "./images/orange.png"
+import green from "./images/green.png"
+import arrow from  "./images/Vector.png"
+import turn from "./images/setinha.png"
+
 export default function Cards({questions,
     answers, id, answersList, setAnswersList}){
     
@@ -10,18 +16,18 @@ export default function Cards({questions,
         let imageURL =""
 
         const addRed = () => {
-            setAnswersList([...answersList, "images/red.png"]);
+            setAnswersList([...answersList, red]);
             setColor("red");
             setFinal(true);
         }
 
         const addOrange = () => {
-            setAnswersList([...answersList, "images/orange.png"]);
+            setAnswersList([...answersList, orange]);
             setColor("#FF922E");
             setFinal(true);
         }
         const addGreen = () => {
-            setAnswersList([...answersList, "images/green.png"]);
+            setAnswersList([...answersList, green]);
             setColor("green");
             setFinal(true);
         }
@@ -31,7 +37,7 @@ export default function Cards({questions,
         return(
             <div className="cover-question">
                 <p>Pergunta {id}</p>
-                <img src="images/Vector.png" alt="setinha" onClick={()=> setCover(true)} />
+                <img src={arrow} alt="arrow" onClick={()=> setCover(true)} />
             </div>
         )
     }else{
@@ -40,7 +46,7 @@ export default function Cards({questions,
                 <div className="questions">
                     <div className="question front-face">
                     <h1>{questions}</h1>
-                    <img className="flip" src="images/setinha.png" alt="Flip" onClick={()=> setFlip(true)} />
+                    <img className="flip" src={turn} alt="Flip" onClick={()=> setFlip(true)} />
                     </div>
                     <div className="question back-face">
                     <h1>{answers}</h1>
@@ -66,13 +72,13 @@ export default function Cards({questions,
                 )
             }else{
                 if(color==="red"){
-                    imageURL = "images/red.png"
+                    imageURL = red
                 }
                 if(color==="#FF922E"){
-                    imageURL = "images/orange.png"
+                    imageURL = orange
                 }
                 if(color==="green"){
-                    imageURL = "images/green.png"
+                    imageURL = green
                 }
                 return(
                 <div className="cover-question final">
