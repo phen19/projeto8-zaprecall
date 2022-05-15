@@ -79,7 +79,7 @@ body{
 .cover-question{
     margin-top: 25px;
     width: 300px;
-    height: 65px;
+    min-height: 65px;
     font-size: 16px;
     font-family: 'Recursive';
     background-color: #FFFFFF;
@@ -141,7 +141,7 @@ body{
 }
 
 .questions{
-    margin-top: 50px;
+    margin-top: 25px;
     display: flex;
     align-items: center;
     flex-direction: column;
