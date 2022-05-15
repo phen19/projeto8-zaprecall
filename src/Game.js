@@ -38,8 +38,13 @@ export default function Game({deckID, meta, setStart, setDeck, setMeta}){
         return Math.random() - 0.5;
     }
 
-    const questions = decks[deckID].sort(shuffle)
+    // Não utilizo o setter "setQuestions" pois não vou mudar o estado de questions
+    const [questions] = React.useState(decks[deckID].sort(shuffle))
 
+/*Estava utilizando o código abaixo, mas estava com um bug. 
+Se houvessem dois cards abertos e marcasse alguma das opções (Zap, não lembro, quase lembrei)
+em um deles, o conteudo do outro era alterado, como se fosse feito o shuffle novamente na array. */
+    /*const questions = decks[deckID].sort(shuffle)*/
 
     return( 
      
