@@ -5,7 +5,7 @@ export default function Deck({setStart, setDeck, deckID}){
         <div className="content">
                     <img src={logo} alt="Logo" />
                     <h1>Zap Recall</h1>
-                    <select {e => setDeck(e.target.value)}>
+                    <select onChange= {e => setDeck(e.target.value)}>
                         <option value="" disabled selected hidden > Escolha seu deck</option>
                         <option value="0">JS</option>
                         <option value="1">Lolzinho</option>
@@ -19,7 +19,7 @@ export default function Deck({setStart, setDeck, deckID}){
             <div className="content">
                         <img src={logo} alt="Logo" />
                         <h1>Zap Recall</h1>
-                        <select{e => setDeck(e.target.value)}>
+                        <select onChange={e => setDeck(e.target.value)}>
                             <option value="" disabled selected hidden > Escolha seu deck</option>
                             <option value="0">JS</option>
                             <option value="1">Lolzinho</option>
